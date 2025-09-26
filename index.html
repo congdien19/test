@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from w3crm.dexignzone.com/flask/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Apr 2024 03:57:48 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="W3CRM - Flask Admin Dashboard Template">
+    <meta property="og:title" content="W3CRM - Flask Admin Dashboard Template">
+    <meta property="og:description" content="W3CRM - Flask Admin Dashboard Template">
+    <meta property="og:image" content="social-image.png">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-token" content="NwB0hOpVBFIoXI0mSz9AEbdmljMsIYGWogRAW7UF">
+
+    <!-- PAGE TITLE HERE -->
+    <title>Trang chủ</title>
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/toastr/css/toastr.min.css">
+    <link rel="stylesheet" href="/vendor/select2/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+    <!-- tagify-css -->
+    <link href="/vendor/tagify/dist/tagify.css" rel="stylesheet">
+
+    <!-- Style css -->
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<style>
+    body {
+        font-family: "Lexend", sans-serif !important;
+        font-size: 14px !important;
+    }
+
+    .comments-order {
+        min-width: 150px;
+    }
+
+    .menu-icon img {
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+    }
+
+    span.nav-text {
+        font-size: 13px !important;
+    }
+
+    body[data-theme-version="light"] table.dataTable thead th {
+        color: #374557 !important;
+    }
+
+    body[data-theme-version="light"] .table tbody tr td {
+        vertical-align: middle !important;
+    }
+
+    .checkbox:checked+img {
+        border: 3px solid #1877F2;
+        position: relative;
+        top: -10px;
+        transform: scale(1.2);
+    }
+
+    .table-payment-info {
+        width: unset;
+        margin: 0 auto 15px auto;
+    }
+
+    .table-payment-info td {
+        text-align: left;
+        font-size: 19px;
+        border: none;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+
+    body[data-theme-version="light"] .table-payment-info td {
+        color: #000;
+    }
+
+    .qr-code {
+        width: 450px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn-copy {
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-copy:hover {
+        font-size: 110%;
+    }
+
+    .notify_content {
+        max-width: 400px;
+        max-height: 100px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        padding: 3px 6px;
+        border-radius: 5px;
+        min-height: 70px;
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+        background: #C1C1C1;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    select {
+        appearance: auto !important;
+    }
+</style>
+
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="https://subgiare.vn" class="brand-logo">
+                <svg class="logo-abbr" width="39" height="23" viewBox="0 0 39 23" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path class="w3"
+                        d="M32.0362 22H19.0466L20.7071 18.7372C20.9559 18.2484 21.455 17.9378 22.0034 17.9305L31.1036 17.8093C33.0753 17.6497 33.6571 15.9246 33.7015 15.0821C33.7015 13.2196 32.1916 12.5765 31.4367 12.4878H23.7095L25.9744 8.49673H30.4375C31.8763 8.3903 32.236 7.03332 32.236 6.36814C32.3426 4.93133 30.9482 4.61648 30.2376 4.63865H28.6955C28.2646 4.63865 27.9788 4.19212 28.1592 3.8008L29.7047 0.44798C31.0903 0.394765 32.8577 0.780573 33.5683 0.980129C38.6309 3.42801 37.0988 7.98676 35.6999 9.96014C38.1513 11.9291 38.4976 14.3282 38.3644 15.2816C38.098 20.1774 34.0346 21.8005 32.0362 22Z"
+                        fill="var(--primary)" />
+                    <path class="react-w"
+                        d="M9.89261 21.4094L0 2.80536H4.86354C5.41354 2.80536 5.91795 3.11106 6.17246 3.59864L12.4032 15.5355C12.6333 15.9762 12.6261 16.5031 12.3842 16.9374L9.89261 21.4094Z"
+                        fill="white" />
+                    <path class="react-w"
+                        d="M17.5705 21.4094L7.67786 2.80536H12.5372C13.0894 2.80536 13.5954 3.11351 13.8489 3.60412L20.302 16.0939L17.5705 21.4094Z"
+                        fill="white" />
+                    <path class="react-w"
+                        d="M17.6443 21.4094L28.2751 0H23.4513C22.8806 0 22.361 0.328884 22.1168 0.844686L14.8271 16.2416L17.6443 21.4094Z"
+                        fill="white" />
+                    <path class="react-w"
+                        d="M9.89261 21.4094L0 2.80536H4.86354C5.41354 2.80536 5.91795 3.11106 6.17246 3.59864L12.4032 15.5355C12.6333 15.9762 12.6261 16.5031 12.3842 16.9374L9.89261 21.4094Z"
+                        stroke="white" />
+                    <path class="react-w"
+                        d="M17.5705 21.4094L7.67786 2.80536H12.5372C13.0894 2.80536 13.5954 3.11351 13.8489 3.60412L20.302 16.0939L17.5705 21.4094Z"
+                        stroke="white" />
+                    <path class="react-w"
+                        d="M17.6443 21.4094L28.2751 0H23.4513C22.8806 0 22.361 0.328884 22.1168 0.844686L14.8271 16.2416L17.6443 21.4094Z"
+                        stroke="white" />
+                </svg>
+                <svg class="brand-title" width="47" height="16" viewBox="0 0 47 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.36 15.2C7.2933 15.2 6.3 15.0267 5.38 14.68C4.4733 14.32 3.68 13.82 3 13.18C2.3333 12.5267 1.8133 11.76 1.44 10.88C1.0667 9.99999 0.880005 9.03999 0.880005 7.99999C0.880005 6.95999 1.0667 5.99999 1.44 5.11999C1.8133 4.23999 2.34 3.47999 3.02 2.83999C3.7 2.18666 4.49331 1.68666 5.40001 1.33999C6.30671 0.979988 7.3 0.799988 8.38 0.799988C9.5267 0.799988 10.5733 0.999988 11.52 1.39999C12.4667 1.78666 13.2667 2.36666 13.92 3.13999L12.24 4.71999C11.7333 4.17332 11.1667 3.76666 10.54 3.49999C9.9133 3.21999 9.2333 3.07999 8.5 3.07999C7.7667 3.07999 7.0933 3.19999 6.48 3.43999C5.88 3.67999 5.35331 4.01999 4.90001 4.45999C4.46001 4.89999 4.1133 5.41999 3.86 6.01999C3.62 6.61999 3.5 7.27999 3.5 7.99999C3.5 8.71999 3.62 9.37999 3.86 9.97999C4.1133 10.58 4.46001 11.1 4.90001 11.54C5.35331 11.98 5.88 12.32 6.48 12.56C7.0933 12.8 7.7667 12.92 8.5 12.92C9.2333 12.92 9.9133 12.7867 10.54 12.52C11.1667 12.24 11.7333 11.82 12.24 11.26L13.92 12.86C13.2667 13.62 12.4667 14.2 11.52 14.6C10.5733 15 9.52 15.2 8.36 15.2ZM16.4113 15V0.999988H22.1713C23.4113 0.999988 24.4713 1.19999 25.3513 1.59999C26.2446 1.99999 26.9313 2.57332 27.4113 3.31999C27.8913 4.06666 28.1313 4.95332 28.1313 5.97999C28.1313 7.00669 27.8913 7.89329 27.4113 8.63999C26.9313 9.37329 26.2446 9.93999 25.3513 10.34C24.4713 10.7267 23.4113 10.92 22.1713 10.92H17.8513L19.0113 9.73999V15H16.4113ZM25.5713 15L22.0313 9.91999H24.8112L28.3713 15H25.5713ZM19.0113 10.02L17.8513 8.77999H22.0513C23.1979 8.77999 24.0579 8.53329 24.6312 8.03999C25.2179 7.54669 25.5113 6.85999 25.5113 5.97999C25.5113 5.08666 25.2179 4.39999 24.6312 3.91999C24.0579 3.43999 23.1979 3.19999 22.0513 3.19999H17.8513L19.0113 1.91999V10.02ZM31.0402 15V0.999988H33.1802L39.3002 11.22H38.1802L44.2002 0.999988H46.3402L46.3602 15H43.9002L43.8802 4.85999H44.4002L39.2802 13.4H38.1202L32.9202 4.85999H33.5202V15H31.0402Z"
+                        fill="black" />
+                </svg>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <form>
+                                <div class="input-group search-area">
+                                    <span class="input-group-text"><button class="bg-transparent border-0">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8.78605" cy="8.78605" r="8.23951" stroke="white"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14.5168 14.9447L17.7471 18.1667" stroke="white"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button></span>
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-fullscreen" href="javascript:void(0);">
+                                    <svg id="icon-full" viewBox="0 0 24 24" width="20" height="20"
+                                        stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round" class="css-i6dzq1">
+                                        <path
+                                            d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                                            style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path>
+                                    </svg>
+                                    <svg id="icon-minimize" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="A098AE" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-minimize">
+                                        <path
+                                            d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+                                            style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="nav-item ps-3">
+                                <div class="dropdown header-profile2">
+                                    <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="header-info2 d-flex align-items-center">
+                                            <div class="header-media">
+                                                <img src="/images/tab/1.jpg" alt="">
+                                            </div>
+                                            <div class="header-info">
+                                                <h6>Anh Duy</h6>
+                                                <p><span class="__cf_email__" data-cfemail="7f0d101d0651141a1111063f13161d1a0d1051160b">[email&#160;protected]</span></p>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" style="">
+                                        <div class="card border-0 mb-0">
+                                            <div class="card-header py-2">
+                                                <div class="products">
+                                                    <img src="/images/tab/1.jpg" class="avatar avatar-md" alt="">
+                                                    <div>
+                                                        <h6>Anh Duy</h6>
+                                                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="067469647f286d6368687f466a6f64637469286f72">[email&#160;protected]</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 py-2">
+                                                <a href="https://subgiare.vn/user" class="dropdown-item ai-icon ">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M11.9848 15.3462C8.11714 15.3462 4.81429 15.931 4.81429 18.2729C4.81429 20.6148 8.09619 21.2205 11.9848 21.2205C15.8524 21.2205 19.1543 20.6348 19.1543 18.2938C19.1543 15.9529 15.8733 15.3462 11.9848 15.3462Z"
+                                                                stroke="var(--primary)" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M11.9848 12.0059C14.5229 12.0059 16.58 9.94779 16.58 7.40969C16.58 4.8716 14.5229 2.81445 11.9848 2.81445C9.44667 2.81445 7.38857 4.8716 7.38857 7.40969C7.38 9.93922 9.42381 11.9973 11.9524 12.0059H11.9848Z"
+                                                                stroke="var(--primary)" stroke-width="1.42857"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span class="ms-2">Tài khoản của tôi </span>
+                                                    </a>
+                                                <a href="https://subgiare.vn/recharge" class="dropdown-item ai-icon ">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M17.9026 8.85114L13.4593 12.4642C12.6198 13.1302 11.4387 13.1302 10.5992 12.4642L6.11844 8.85114"
+                                                                stroke="var(--primary)" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z"
+                                                                stroke="var(--primary)" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <span class="ms-2">Nạp tiền tài khoản </span>
+                                                    </a>
+                                            </div>
+                                            <div class="card-footer px-0 py-2">
+                                                <a href="https://subgiare.vn/user/logout" class="dropdown-item ai-icon">
+                                                        <svg class="profle-logout" xmlns="http://www.w3.org/2000/svg"
+                                                            width="18" height="18" viewBox="0 0 24 24"
+                                                            fill="none" stroke="#ff7979" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                            <polyline points="16 17 21 12 16 7"></polyline>
+                                                            <line x1="21" y1="12" x2="9"
+                                                                y2="12"></line>
+                                                        </svg>
+                                                        <span class="ms-2 text-danger">Đăng xuất </span>
+                                                    </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li>
+                        <a href="https://subgiare.vn" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/application.svg" alt="">
+                            </div>
+                            <span class="nav-text">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://subgiare.vn/user" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/users.svg" alt="">
+                            </div>
+                            <span class="nav-text">Tài khoản của tôi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://subgiare.vn/recharge" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/wallet.svg" alt="">
+                            </div>
+                            <span class="nav-text">Nạp tiền tài khoản</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://subgiare.vn/website" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/web.svg" alt="">
+                            </div>
+                            <span class="nav-text">Website riêng & API</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://subgiare.vn/prices" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/price-list.svg" alt="">
+                            </div>
+                            <span class="nav-text">Bảng giá & cấp bậc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://subgiare.vn/user/transaction" class="" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/transaction-history.svg" alt="">
+                            </div>
+                            <span class="nav-text">Lịch sử giao dịch</span>
+                        </a>
+                    </li>
+                    <li class="menu-title">Sản phẩm & Dịch vụ</li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/facebook.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Facebook</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/facebook/tang-like-bai-viet">Tăng like bài viết</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-binh-luan">Tăng bình luận</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-like-page">Tăng like page</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-member-group">Tăng member group</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-mat-live">Tăng mắt live</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-view-story">Tăng view story</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/tang-view-video">Tăng view video</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/facebook/vip-like-thang">Vip like tháng</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/instagram.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Instagram</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/instagram/tang-like-bai-viet">Tăng like bài viết</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/instagram/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/tiktok.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Tiktok</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/tiktok/tang-like">Tăng like</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/tiktok/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/tiktok/tang-view-video">Tăng view video</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/youtube.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Youtube</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/youtube/tang-like">Tăng like</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/youtube/tang-subscribe">Tăng subscribe</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/threads.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Threads</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/threads/tang-like">Tăng like</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/threads/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/threads/tang-binh-luan">Tăng bình luận</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/shopee.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Shopee</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/shopee/tang-love">Tăng love</a>
+                            </li>
+                            <li><a href="https://subgiare.vn/service/shopee/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                            <div class="menu-icon">
+                                <img src="/images/svg/lazada.svg?v=1758859744" alt="">
+                            </div>
+                            <span class="nav-text">Dịch vụ Lazada</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="https://subgiare.vn/service/lazada/tang-theo-doi">Tăng theo dõi</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="help-desk text-center">
+                    <a href="https://subgiare.vn/user/logout" class="btn btn-primary">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="page-titles">
+                <ol class="breadcrumb">
+                    <li>
+                        <h5 class="bc-title">Trang chủ</h5>
+                    </li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z"
+                                    stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            SubGiaRe.Vn </a>
+                    </li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Trang chủ</a></li>
+                </ol>
+                <a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>
+            </div>
+            <div class="container-fluid">
+                <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                <script>
+                    const user = {
+                        "id": 27757,
+                        "fullname": "Anh Duy",
+                        "phone": null,
+                        "email": "roby.kenny@libero.it",
+                        "username": "Vancong000",
+                        "email_verified_at": null,
+                        "balance": 13,
+                        "total_loaded": 171000,
+                        "level": "member",
+                        "is_manual_level": false,
+                        "role": "user",
+                        "api_token": "eyJpdiI6IlNPU0djN1NBWG9QQWhrQ0NvOWU5b3c9PSIsInZhbHVlIjoiV3RtRDZoc1M4TVNXekFLUGl6YUZVSWZWa0d4NlhIb2YrVzhiNURxWUN1a1ZZZFBocDlIWEhYRkZicUVkV1pNeHczT3Y3eUdYRElETjQ0NTFhaFN3SFhOcUJFVlhrb0pzdTg4RXdIell1OGhSTDJPRHFGVmNMUWU2NTU0QlphNmtLQmRMbUZZVWVtK0dSZ0Z5TXNSZ0ZBPT0iLCJtYWMiOiJiNWNlOGU1NjY2OWE4Nzk3YmUyZTcxZWRhZDVmYmIxODM4NzAwYzUzYjkyZWMwYWM2MmRiODI2ZmY3NzcyOGRkIiwidGFnIjoiIn0=",
+                        "session": "51c25ea04a5046892ce99dd75eb40d90",
+                        "telegram_connect": "off",
+                        "created_at": "2025-06-02 17:19:00",
+                        "updated_at": "2025-09-26 08:38:43",
+                        "isAdmin": false,
+                        "total_loaded_month": "166200"
+                    };
+                    const API_URL = {
+                        service_services: "https://subgiare.vn/api/services"
+                    }
+                </script>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Facebook</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-like-bai-viet">
+                                                <img src="/images/svg/facebook/tang-like-bai-viet.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like bài viết</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-binh-luan">
+                                                <img src="/images/svg/facebook/tang-binh-luan.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng bình luận</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-theo-doi">
+                                                <img src="/images/svg/facebook/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-like-page">
+                                                <img src="/images/svg/facebook/tang-like-page.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like page</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-member-group">
+                                                <img src="/images/svg/facebook/tang-member-group.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng member group</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-mat-live">
+                                                <img src="/images/svg/facebook/tang-mat-live.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng mắt live</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-view-story">
+                                                <img src="/images/svg/facebook/tang-view-story.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng view story</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/tang-view-video">
+                                                <img src="/images/svg/facebook/tang-view-video.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng view video</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/facebook/vip-like-thang">
+                                                <img src="/images/svg/facebook/vip-like-thang.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Vip like tháng</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Instagram</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/instagram/tang-like-bai-viet">
+                                                <img src="/images/svg/instagram/tang-like-bai-viet.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like bài viết</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/instagram/tang-theo-doi">
+                                                <img src="/images/svg/instagram/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Tiktok</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/tiktok/tang-like">
+                                                <img src="/images/svg/tiktok/tang-like.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/tiktok/tang-theo-doi">
+                                                <img src="/images/svg/tiktok/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/tiktok/tang-view-video">
+                                                <img src="/images/svg/tiktok/tang-view-video.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng view video</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Youtube</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/youtube/tang-like">
+                                                <img src="/images/svg/youtube/tang-like.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/youtube/tang-subscribe">
+                                                <img src="/images/svg/youtube/tang-subscribe.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng subscribe</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Threads</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/threads/tang-like">
+                                                <img src="/images/svg/threads/tang-like.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng like</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/threads/tang-theo-doi">
+                                                <img src="/images/svg/threads/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/threads/tang-binh-luan">
+                                                <img src="/images/svg/threads/tang-binh-luan.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng bình luận</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Shopee</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/shopee/tang-love">
+                                                <img src="/images/svg/shopee/tang-love.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng love</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/shopee/tang-theo-doi">
+                                                <img src="/images/svg/shopee/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Dịch vụ Lazada</h4>
+                                    </div>
+                                    <div class="col-xl-3 col-md-3 col-6">
+                                        <div class="card  blog-card">
+                                            <div class="card-body text-center">
+                                                <a href="https://subgiare.vn/service/lazada/tang-theo-doi">
+                                                <img src="/images/svg/lazada/tang-theo-doi.svg?t=1758859744"
+                                                    alt="" width="70" height="70">
+                                                <h4>Tăng theo dõi</h4>
+                                            </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12 mb-5">
+                                        <h4 class="heading mb-3 text-primary">Tài khoản</h4>
+                                        <div class="card overflow-hidden">
+                                            <div class="text-center p-5 overlay-box" style="background-image: url(images/big/img5.jpg);">
+                                                <img src="images/profile/profile.png" width="100" class="img-fluid rounded-circle" alt="">
+                                                <h3 class="mt-3 mb-0 text-white">Vancong000</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row text-center">
+                                                    <div class="col-6">
+                                                        <div class="bgl-primary rounded p-3">
+                                                            <h4 class="mb-0 text-bold">Số dư</h4>
+                                                            <h5><b class="text-success">13</b>
+                                                                <small>VNĐ</small>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="bgl-primary rounded p-3">
+                                                            <h4 class="mb-0 text-bold">Đã nạp</h4>
+                                                            <h5><b class="text-primary">171,000</b>
+                                                                <small>VNĐ</small>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer mt-0">
+                                                <a class="btn btn-primary btn-lg btn-block" href="https://subgiare.vn/recharge">Nạp tiền
+                                            tài
+                                            khoản</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="heading mb-3 text-primary">Thông báo mới</h4>
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div id="DZ_W_TimeLine02" class="widget-timeline dz-scroll style-1 p-3 height370">
+                                                    <ul class="timeline">
+                                                        <li class="load_status_notification" data-status="Hot">
+                                                            <div class="timeline-badge"></div>
+                                                            <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>2025-09-01 11:49:05</span>
+                                                        <h6 class="mb-0">Khuyến mãi 10% giá trị nạp tiền bắt đầu bây giờ đến 23h59p ngày 06/09/2025. Chúc mọi người tháng mới nhiều may mắn ❤️
+                                                        </h6>
+                                                    </a>
+                                                        </li>
+                                                        <li class="load_status_notification" data-status="Hot">
+                                                            <div class="timeline-badge"></div>
+                                                            <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>2025-08-19 15:00:45</span>
+                                                        <h6 class="mb-0">Hạ giá gói - SV81 - Follow dạng mới [nên dùng] - ĐỘC QUYỀN - HOT SALE giá chỉ còn từ 6đ ❤️
+                                                        </h6>
+                                                    </a>
+                                                        </li>
+                                                        <li class="load_status_notification" data-status="Update">
+                                                            <div class="timeline-badge"></div>
+                                                            <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>2025-08-01 18:47:03</span>
+                                                        <h6 class="mb-0">Khuyến mãi 10% giá trị nạp tiền bắt đầu bây giờ đến 23h59p ngày 06/08/2025. Chúc mọi người tháng mới nhiều may mắn ❤️
+                                                        </h6>
+                                                    </a>
+                                                        </li>
+                                                        <li class="load_status_notification" data-status="Update">
+                                                            <div class="timeline-badge"></div>
+                                                            <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>2025-07-07 22:20:04</span>
+                                                        <h6 class="mb-0">Điều chỉnh giá Follow dạng mới [đang thử nghiệm] - ĐỘC QUYỀN - HOT
+                                                        </h6>
+                                                    </a>
+                                                        </li>
+                                                        <li class="load_status_notification" data-status="Hot">
+                                                            <div class="timeline-badge"></div>
+                                                            <a class="timeline-panel text-muted" href="javascript:void(0);">
+                                                        <span>2025-06-02 15:39:00</span>
+                                                        <h6 class="mb-0">Khuyến mãi 10% giá trị nạp tiền bắt đầu bây giờ đến 23h59p ngày 06/06/2025. Chúc mọi người tháng mới nhiều may mắn ❤️
+                                                        </h6>
+                                                    </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modelNotificationSystem">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p class="h4">[HOT HOT HOT]
+                                    <br><br> - Khuyến mãi 10% giá trị nạp tiền đến 23h59p ngày 06/09/2025. Chúc mọi người tháng mới nhiều may mắn ❤️.
+                                    <br> - Follow fb sv83 giá chỉ 2đ sale độc quyền mọi người đẩy mạnh đơn nhé.
+                                    <br> - Mọi thắc mắc hỗ trợ vui lòng liên hệ qua Zalo: 0862667899 để được hỗ trợ nhanh nhất.</p>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--**********************************
+    Content body end
+***********************************-->
+        <div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
+            <div class="offcanvas-header">
+                <h5 class="modal-title" id="#gridSystemModal">Add Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container-fluid">
+                    <div>
+                        <label>Profile Picture</label>
+                        <div class="dz-default dlab-message upload-img mb-3">
+                            <form action="#" class="dropzone">
+                                <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M20.5 20V35" stroke="#DADADA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M34.4833 30.6501C36.1088 29.7638 37.393 28.3615 38.1331 26.6644C38.8731 24.9673 39.027 23.0721 38.5703 21.2779C38.1136 19.4836 37.0724 17.8926 35.6111 16.7558C34.1497 15.619 32.3514 15.0013 30.4999 15.0001H28.3999C27.8955 13.0488 26.9552 11.2373 25.6498 9.70171C24.3445 8.16614 22.708 6.94647 20.8634 6.1344C19.0189 5.32233 17.0142 4.93899 15.0001 5.01319C12.9861 5.0874 11.015 5.61722 9.23523 6.56283C7.45541 7.50844 5.91312 8.84523 4.7243 10.4727C3.53549 12.1002 2.73108 13.9759 2.37157 15.959C2.01205 17.9421 2.10678 19.9809 2.64862 21.9222C3.19047 23.8634 4.16534 25.6565 5.49994 27.1667"
+                                stroke="#DADADA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Employee ID <span
+                                class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput2" class="form-label">Employee Name<span
+                                class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput3" class="form-label">Employee Email<span
+                                class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput4" class="form-label">Password<span
+                                class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="exampleFormControlInput4" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Designation<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">Software Engineer</option>
+                            <option value="css">Civil Engineer</option>
+                            <option value="javascript">Web Doveloper</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Department<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">Software</option>
+                            <option value="css">Doit</option>
+                            <option value="javascript">Designing</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Country<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">Ind</option>
+                            <option value="css">USA</option>
+                            <option value="javascript">UK</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput88" class="form-label">Mobile<span
+                                class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="exampleFormControlInput88" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Gender<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">Male</option>
+                            <option value="css">Female</option>
+                            <option value="javascript">Other</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput99" class="form-label">Joining Date<span
+                                class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="exampleFormControlInput99">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput8" class="form-label">Date of Birth<span
+                                class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="exampleFormControlInput8">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInput10" class="form-label">Reporting To<span
+                                class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="exampleFormControlInput10" placeholder="">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Language Select<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">English</option>
+                            <option value="css">Hindi</option>
+                            <option value="javascript">Canada</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">User Role<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Please select</option>
+                            <option value="html">Parmanent</option>
+                            <option value="css">Parttime</option>
+                            <option value="javascript">Per Hours</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-12 mb-3">
+                                <label class="form-label">Address<span class="text-danger">*</span></label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="col-xl-12 mb-3">
+                                <label class="form-label">About<span class="text-danger">*</span></label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger light ms-1">Cancel</button>
+                            <button class="btn btn-primary me-1">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample1">
+            <div class="offcanvas-header">
+                <h5 class="modal-title" id="#gridSystemModal1">Add New Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container-fluid">
+                    <form>
+                        <div class="row">
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInputfirst" class="form-label">Title<span
+                                class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="exampleFormControlInputfirst" placeholder="Title">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Project<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Project</option>
+                            <option value="html">Salesmate</option>
+                            <option value="css">ActiveCampaign</option>
+                            <option value="javascript">Insightly</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInputthree" class="form-label">Start Date<span
+                                class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="exampleFormControlInputthree">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label for="exampleFormControlInputfour" class="form-label">End Date<span
+                                class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="exampleFormControlInputfour">
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Estimated Hour<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="09:30"><span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Status<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Status</option>
+                            <option value="html">In Progess</option>
+                            <option value="css">Pending</option>
+                            <option value="javascript">Completed</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">priority<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">priority</option>
+                            <option value="html">Hight</option>
+                            <option value="css">Medium</option>
+                            <option value="javascript">Low</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Category<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Category</option>
+                            <option value="html">Designing</option>
+                            <option value="css">Development</option>
+                            <option value="javascript">react developer</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Permission<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Permission</option>
+                            <option value="html">Public</option>
+                            <option value="css">Private</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Deadline add<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Deadline</option>
+                            <option value="html">Yes</option>
+                            <option value="css">No</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Assigned to<span class="text-danger">*</span></label>
+                                <select class="default-select style-1 form-control">
+                            <option data-display="Select">Assigned</option>
+                            <option value="html">Bernard</option>
+                            <option value="css">Sergey Brin</option>
+                            <option value="javascript"> Larry Ellison</option>
+                        </select>
+                            </div>
+                            <div class="col-xl-6 mb-3">
+                                <label class="form-label">Responsible Person<span
+                                class="text-danger">*</span></label>
+                                <input name='tagify' class="form-control py-0 ps-0 h-auto" value='James, Harry'>
+
+                            </div>
+                            <div class="col-xl-12 mb-3">
+                                <label class="form-label">Description<span class="text-danger">*</span></label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="col-xl-12 mb-3">
+                                <label class="form-label">Summary<span class="text-danger">*</span></label>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+                        <div>
+                            <button class="btn btn-danger light ms-1">Cancel</button>
+                            <button class="btn btn-primary me-1">Help Desk</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel1">Invite Employee</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" placeholder="hello@gmail.com">
+                                <label class="form-label mt-3">Employment date<span
+                                class="text-danger">*</span></label>
+                                <input class="form-control" type="date">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <label class="form-label mt-3">First Name<span
+                                        class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <label class="form-label mt-3">Last Name<span
+                                        class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Surname">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 invite">
+                                    <label class="form-label">Send invitation email<span
+                                    class="text-danger">*</span></label>
+                                    <input type="email" class="form-control " placeholder="+ invite">
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--**********************************
+    Footer start
+***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Developed by <a href="https://dexignzone.com/" target="_blank">Hoàng Văn Lĩnh</a> 2024
+                </p>
+            </div>
+        </div>
+        <!--**********************************
+    Footer end
+***********************************-->
+
+        <!--**********************************
+   Support ticket button start
+***********************************-->
+
+        <!--**********************************
+   Support ticket button end
+***********************************-->
+
+
+    </div>
+    <!--**********************************
+Main wrapper end
+***********************************-->
+
+
+    <!--**********************************
+Scripts
+***********************************-->
+
+    <!-- Required vendors -->
+    <script src="/vendor/global/global.min.js"></script>
+    <script src="/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/vendor/toastr/js/toastr.min.js"></script>
+
+
+    <!-- tagify -->
+    <script src="/vendor/tagify/dist/tagify.js"></script>
+
+    <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/js/plugins-init/datatables.init.js"></script>
+    <script src="/vendor/select2/js/select2.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <script src="/js/custom.js"></script>
+    <script src="/js/deznav-init.js"></script>
+
+
+
+    <script src="/js/script.js?t=1758859744"></script>
+    <script src="/js/user.js?t=1758859744"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#modelNotificationSystem').modal('show');
+            $('.load_status_notification').each(function() {
+                let data = $(this).attr('data-status');
+                let status = statusNotification(data);
+                $(this).find('.timeline-badge').addClass(status.type);
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
